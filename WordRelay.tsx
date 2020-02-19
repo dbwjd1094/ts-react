@@ -7,6 +7,7 @@ const WordRelay = () => {
     const [result, setResult] = useState('');
     const inputEl = useRef<HTMLInputElement>(null);
 
+    //usecallback 에 쓰이는 state들을 웬만하면 다 [] 안에 적어줘야한다.
     const onSubmitForm = useCallback<(e: React.FormEvent) => void>((e) => {
         e.preventDefault();
         const input = inputEl.current;
@@ -22,7 +23,7 @@ const WordRelay = () => {
             setValue('');
             if (input) input.focus();
         }
-    }, [value])
+    }, [word, value])
 
     const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.currentTarget.value);
